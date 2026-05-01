@@ -77,10 +77,6 @@ async function getAstroI18nConfig() {
   // Stub remaining package imports so the config object evaluates safely
   const stubImports = [
     {
-      regex: /import\s+mdx\s+from\s+['"]@astrojs\/mdx['"];?\s*\n/,
-      name: "mdx",
-    },
-    {
       regex: /import\s+react\s+from\s+['"]@astrojs\/react['"];?\s*\n/,
       name: "react",
     },
@@ -91,18 +87,6 @@ async function getAstroI18nConfig() {
     {
       regex: /import\s+tailwindcss\s+from\s+['"]@tailwindcss\/vite['"];?\s*\n/,
       name: "tailwindcss",
-    },
-    {
-      regex: /import\s+AutoImport\s+from\s+['"]astro-auto-import['"];?\s*\n/,
-      name: "AutoImport",
-    },
-    {
-      regex: /import\s+remarkCollapse\s+from\s+['"]remark-collapse['"];?\s*\n/,
-      name: "remarkCollapse",
-    },
-    {
-      regex: /import\s+remarkToc\s+from\s+['"]remark-toc['"];?\s*\n/,
-      name: "remarkToc",
     },
     { regex: /import\s+sharp\s+from\s+['"]sharp['"];?\s*\n/, name: "sharp" },
   ];
@@ -712,7 +696,7 @@ async function generateLlmsFiles() {
         } else {
           console.log(
             "   ⚠️  No server available. SSR pages will be skipped.\n" +
-              "       Run 'yarn preview' before 'yarn generate-llms' to include them.",
+              "       Run 'npm run preview' before 'npm run generate-llms' to include them.",
           );
         }
       }

@@ -12,26 +12,16 @@ const commonFields = {
   draft: z.boolean(),
 };
 
-// Post collection schema
 const blogCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
+  loader: glob({ pattern: "**/*.md", base: "src/content/blog" }),
   schema: z.object({
-    title: z.string(),
-    meta_title: z.string().optional(),
-    description: z.string().optional(),
-    date: z.coerce.date().optional(),
-    image: z.string().optional(),
-    author: z.string().default("Admin"),
-    // Use factory functions for mutable array defaults (Zod 4 best practice)
-    categories: z.array(z.string()).default(() => ["others"]),
-    tags: z.array(z.string()).default(() => ["others"]),
-    draft: z.boolean().optional(),
+    ...commonFields,
   }),
 });
 
 // Pages collection schema
 const pagesCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
+  loader: glob({ pattern: "**/*.md", base: "src/content/pages" }),
   schema: z.object({
     ...commonFields,
   }),
@@ -39,7 +29,7 @@ const pagesCollection = defineCollection({
 
 // about collection schema
 const aboutCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
+  loader: glob({ pattern: "**/*.md", base: "src/content/about" }),
   schema: z.object({
     ...commonFields,
   }),
@@ -47,7 +37,7 @@ const aboutCollection = defineCollection({
 
 // Homepage collection schema
 const homepageCollection = defineCollection({
-  loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/homepage" }),
+  loader: glob({ pattern: "**/-*.md", base: "src/content/homepage" }),
   schema: z.object({
     banner: z.object({
       title: z.string(),
@@ -85,7 +75,6 @@ const homepageCollection = defineCollection({
 
 // Export collections
 export const collections = {
-  // Pages
   homepage: homepageCollection,
   blog: blogCollection,
   pages: pagesCollection,
