@@ -5,14 +5,24 @@ import PageHeader from "@/partials/PageHeader.astro";
 const badges = [
   ["Amazon AWS", "https://img.shields.io/badge/aws-aws-orange?logo=amazonaws&style=flat-square&logoColor=white"],
   ["Kubernetes", "https://img.shields.io/badge/k8s-kubernetes-blue?logo=kubernetes&logoColor=white&style=flat-square"],
+  ["kubeadm", "https://img.shields.io/badge/kubeadm-kubernetes-blue?logo=kubernetes&logoColor=white&style=flat-square"],
+  ["k0s", "https://img.shields.io/badge/k0s-kubernetes-326ce5?logo=kubernetes&logoColor=white&style=flat-square"],
+  ["Talos", "https://img.shields.io/badge/Talos-Linux-ff6f00?logo=linux&logoColor=white&style=flat-square"],
   ["Linux", "https://img.shields.io/badge/Linux-Linux-blueviolet?logo=linux&logoColor=white&style=flat-square"],
   ["ArgoCD", "https://img.shields.io/badge/Argo-Argo-orange?logo=argo&logoColor=white&style=flat-square"],
   ["Helm", "https://img.shields.io/badge/Helm-Helm-blue?logo=helm&logoColor=white&style=flat-square"],
   ["Grafana", "https://img.shields.io/badge/Grafana-Grafana-red?logo=grafana&logoColor=white&style=flat-square"],
+  ["Grafana Alloy", "https://img.shields.io/badge/Grafana%20Alloy-observability-f46800?logo=grafana&logoColor=white&style=flat-square"],
+  ["Loki", "https://img.shields.io/badge/Loki-logs-f46800?logo=grafana&logoColor=white&style=flat-square"],
   ["Prometheus", "https://img.shields.io/badge/Prometheus-Prometheus-orange?logo=prometheus&logoColor=white&style=flat-square"],
+  ["Thanos", "https://img.shields.io/badge/Thanos-metrics-purple?logo=prometheus&logoColor=white&style=flat-square"],
+  ["OpenTelemetry", "https://img.shields.io/badge/OpenTelemetry-traces-black?logo=opentelemetry&logoColor=white&style=flat-square"],
+  ["PromQL", "https://img.shields.io/badge/PromQL-querying-orange?logo=prometheus&logoColor=white&style=flat-square"],
   ["Terraform", "https://img.shields.io/badge/terraform-terraform-blue?logo=terraform&logoColor=white&style=flat-square"],
+  ["CloudFormation", "https://img.shields.io/badge/CloudFormation-IaC-orange?logo=amazonaws&logoColor=white&style=flat-square"],
   ["Serverless", "https://img.shields.io/badge/serverless-framework-red?logo=serverless&logoColor=white&style=flat-square"],
   ["Ansible", "https://img.shields.io/badge/Ansible-Ansible-brightgreen?logo=ansible&logoColor=white&style=flat-square"],
+  ["Percona Operator", "https://img.shields.io/badge/Percona-operator-blue?logo=mysql&logoColor=white&style=flat-square"],
   ["Amazon EC2", "https://img.shields.io/badge/EC2-EC2-yellow?logo=amazonec2&style=flat-square&logoColor=white"],
   ["Amazon EKS", "https://img.shields.io/badge/EKS-Amazon%20EKS-orange?logo=amazonec2&style=flat-square&logoColor=white"],
   ["Amazon ECS", "https://img.shields.io/badge/ECS-ECS-important?logo=amazonecs&style=flat-square&logoColor=white"],
@@ -40,7 +50,7 @@ const stats = [
   ["10+", "years AWS"],
   ["500+", "EC2 migrations"],
   ["20+", "database migrations"],
-  ["21", "VPC network design"],
+  ["K8s", "cluster operations"],
 ];
 
 const cards = [
@@ -52,12 +62,12 @@ const cards = [
   {
     title: "Kubernetes",
     signal: "clusters, workloads, upgrades",
-    items: ["EKS", "Helm", "Argo CD", "Karpenter", "Prometheus", "Grafana", "Docker", "ECR", "network policies"],
+    items: ["EKS", "kubeadm", "k0s", "Talos", "Helm", "Argo CD", "Karpenter", "operators", "network policies", "Docker", "ECR"],
   },
   {
     title: "Infrastructure as Code",
     signal: "repeatable, reviewed, automated",
-    items: ["Terraform", "AWS CDK", "CloudFormation", "Serverless Framework", "Ansible", "custom AWS SDK tooling"],
+    items: ["Terraform", "CloudFormation", "AWS CDK", "Serverless Framework", "Ansible", "custom AWS SDK tooling"],
   },
   {
     title: "Delivery Systems",
@@ -67,7 +77,7 @@ const cards = [
   {
     title: "Observability",
     signal: "logs, metrics, traces, incidents",
-    items: ["OpenTelemetry", "Prometheus", "Grafana", "Datadog", "CloudWatch", "New Relic", "ELK", "PagerDuty", "Opsgenie"],
+    items: ["OpenTelemetry", "Prometheus", "PromQL", "Thanos", "Grafana", "Grafana Alloy", "Loki", "CloudWatch", "Datadog", "New Relic", "PagerDuty", "Opsgenie"],
   },
   {
     title: "Security",
@@ -77,7 +87,7 @@ const cards = [
   {
     title: "Data Stores",
     signal: "operate, scale, maintain",
-    items: ["PostgreSQL", "MySQL", "DynamoDB", "DocumentDB", "MongoDB", "OpenSearch", "Redis", "Memcached", "RDS"],
+    items: ["PostgreSQL", "MySQL", "Percona Operator", "DynamoDB", "DocumentDB", "MongoDB", "OpenSearch", "Redis", "Memcached", "RDS"],
   },
   {
     title: "Automation",
