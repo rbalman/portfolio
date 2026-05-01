@@ -4,7 +4,7 @@
     "base_url": "https://balmanrawat.com.np",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon-balman-real.png",
+    "favicon": "/images/favicon.svg",
     "logo": "",
     "logo_width": "150",
     "logo_height": "30",
@@ -33,7 +33,7 @@
 
   "metadata": {
     "meta_author": "Balman Rawat",
-    "meta_image": "/images/profile-balman-real.jpg",
+    "meta_image": "/images/banner.png",
     "meta_description": "Portfolio of Balman Rawat, Senior DevOps Engineer focused on AWS, Kubernetes, platform automation, observability, and cloud infrastructure."
   },
 
