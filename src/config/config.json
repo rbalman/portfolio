@@ -5,11 +5,11 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon-balman-real.png",
-    "logo": "/images/profile-balman-real-sm.jpg",
+    "logo": "",
     "logo_darkmode": "",
-    "logo_width": "36",
-    "logo_height": "36",
-    "logo_text": "B.R"
+    "logo_width": "150",
+    "logo_height": "30",
+    "logo_text": "Balman"
   },
 
   "settings": {

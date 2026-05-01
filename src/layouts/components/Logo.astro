@@ -60,9 +60,33 @@ const { theme_switcher }: { theme_switcher: boolean } = config.settings;
         )}
       </>
     ) : logo_text ? (
-      logo_text
+      <span class="brand-wordmark">{logo_text}</span>
     ) : (
       title
     )
   }
 </a>
+
+<style>
+  .brand-wordmark {
+    display: inline-block;
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    color: var(--color-text-dark);
+    transform: skewX(-3deg);
+  }
+
+  .brand-wordmark::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 60%;
+    margin-top: 0.18rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+    opacity: 0.85;
+  }
+</style>

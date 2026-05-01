@@ -56,9 +56,6 @@ const communityCards = [
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-7 md:col-9 mb-8 text-center">
-          <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">
-            Balman Rawat
-          </p>
           <h1
             set:html={markdownify(banner.title)}
             class="mb-4 text-h3 lg:text-h1"
@@ -79,6 +76,19 @@ const communityCards = [
             )
           }
         </div>
+        {
+          banner.image && (
+            <div class="col-12">
+              <ImageMod
+                src={banner.image}
+                height={380}
+                width={1200}
+                alt="banner"
+                format="webp"
+              />
+            </div>
+          )
+        }
       </div>
     </div>
   </section>

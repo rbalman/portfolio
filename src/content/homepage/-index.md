@@ -1,9 +1,9 @@
 ---
 # Banner
 banner:
-  title: "B.R"
+  title: "Balman"
   content: "Senior DevOps Engineer focused on cloud infrastructure, platform automation, Kubernetes, observability, and helping teams ship reliable systems."
-  image: "/images/profile-balman-real.jpg"
+  image: "/images/banner.png"
   button:
     enable: true
     label: "Download CV"
