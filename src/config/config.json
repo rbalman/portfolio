@@ -1,0 +1,66 @@
+{
+  "site": {
+    "title": "Balman Rawat",
+    "base_url": "https://balmanrawat.com.np",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon-balman-real.png",
+    "logo": "/images/profile-balman-real-sm.jpg",
+    "logo_darkmode": "",
+    "logo_width": "36",
+    "logo_height": "36",
+    "logo_text": "B.R"
+  },
+
+  "settings": {
+    "search": false,
+    "sticky_header": true,
+    "theme_switcher": false,
+    "default_theme": "light",
+    "pagination": 2,
+    "summary_length": 200,
+    "blog_folder": "blog"
+  },
+
+  "announcement": {
+    "enable": true,
+    "content": "<span class='text-center block'>Senior DevOps Engineer | AWS | Kubernetes | Platform Automation</span>",
+    "expire_days": 7
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright Balman Rawat. Built with Astro."
+  },
+
+  "navigation_button": {
+    "enable": true,
+    "label": "CV",
+    "link": "/cv"
+  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  },
+
+  "disqus": {
+    "enable": true,
+    "shortname": "",
+    "settings": {}
+  },
+
+  "metadata": {
+    "meta_author": "Balman Rawat",
+    "meta_image": "/images/profile-balman-real.jpg",
+    "meta_description": "Portfolio of Balman Rawat, Senior DevOps Engineer focused on AWS, Kubernetes, platform automation, observability, and cloud infrastructure."
+  },
+
+  "llms": {
+    "generate_llms_txt": true,
+    "generate_llms_full_txt": true,
+    "generate_individual_md": true,
+    "include": [],
+    "exclude": []
+  }
+}

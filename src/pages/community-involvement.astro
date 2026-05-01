@@ -1,0 +1,211 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const talks = [
+  {
+    title: "Managing CloudFormation Stacks at Scale",
+    event: "AWS User Group Nepal",
+    summary:
+      "CloudFormation stacks treated as coordinated systems for microservices and immutable infrastructure.",
+    description:
+      "A practical look at CloudFormation limitations, dependency design, and parallel stack creation/destruction.",
+    link: "https://slides.com/rbalman/managing-cloudformation-at-scale",
+    linkedin:
+      "https://www.linkedin.com/posts/rbalman_thank-you-aws-user-group-nepal-looking-forward-share-7056085390943748096-RORL?utm_source=share&utm_medium=member_desktop&rcm=ACoAABk8CpsBfb3FfDjqQX3Dw1tVK85v4vi8SZU",
+  },
+  {
+    title: "Container Internals",
+    event: "DevOps Kathmandu",
+    summary:
+      "A visual and hands-on dive into the Linux primitives behind containers.",
+    description:
+      "Live demo around chroot, namespaces, cgroups, and Linux security modules.",
+    link: "https://slides.com/rbalman/container-internals",
+    linkedin:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7188741371644567552/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABk8CpsBfb3FfDjqQX3Dw1tVK85v4vi8SZU",
+  },
+  {
+    title: "Deploying the career in a cloud native way",
+    event: "CNCF Kathmandu",
+    summary:
+      "Remote work and career lessons from navigating DevOps work globally.",
+    description:
+      "Practical strategies for landing, growing, and thriving in remote cloud native roles.",
+    link: "https://slides.com/rbalman/remote-work",
+    linkedin:
+      "https://www.linkedin.com/posts/cncf-kathmandu_speaker-announcement-were-excited-to-activity-7340981385496530944-cGG4?utm_source=share&utm_medium=member_desktop&rcm=ACoAABk8CpsBfb3FfDjqQX3Dw1tVK85v4vi8SZU",
+  },
+];
+
+const projects = [
+  {
+    title: "Compose your CloudFormation stacks like docker compose",
+    description: "Manage CloudFormation stacks at scale with a compose-style workflow.",
+    link: "https://github.com/rbalman/cfn-compose",
+    stats: [
+      ["Stars", "https://img.shields.io/badge/stars-42-blue?style=flat-square&labelColor=343b41"],
+      ["Forks", "https://img.shields.io/badge/forks-11-blue?style=flat-square&labelColor=343b41"],
+      ["Issues", "https://img.shields.io/badge/issues-11%20open-orange?style=flat-square&labelColor=343b41"],
+      ["Pull Requests", "https://img.shields.io/badge/pull%20requests-2%20open-orange?style=flat-square&labelColor=343b41"],
+    ],
+  },
+  {
+    title: "Bare minimal shell based container runtime built for fun",
+    description: "A tiny shell runtime for learning container internals by building from primitives.",
+    link: "https://github.com/rbalman/ship",
+    stats: [
+      ["Stars", "https://img.shields.io/badge/stars-3-blue?style=flat-square&labelColor=343b41"],
+      ["Forks", "https://img.shields.io/badge/forks-2-blue?style=flat-square&labelColor=343b41"],
+      ["Issues", "https://img.shields.io/badge/issues-1%20open-orange?style=flat-square&labelColor=343b41"],
+      ["Pull Requests", "https://img.shields.io/badge/pull%20requests-1%20open-orange?style=flat-square&labelColor=343b41"],
+    ],
+  },
+  {
+    title: "Dump the CloudFormation stacks dependency as a JSON file",
+    description: "A helper for inspecting CloudFormation stack dependencies in JSON form.",
+    link: "https://github.com/rbalman/cfn-dump",
+    stats: [
+      ["Stars", "https://img.shields.io/badge/stars-8-blue?style=flat-square&labelColor=343b41"],
+      ["Forks", "https://img.shields.io/badge/forks-5-blue?style=flat-square&labelColor=343b41"],
+      ["Issues", "https://img.shields.io/badge/issues-1%20open-orange?style=flat-square&labelColor=343b41"],
+      ["Pull Requests", "https://img.shields.io/badge/pull%20requests-1%20open-orange?style=flat-square&labelColor=343b41"],
+    ],
+  },
+  {
+    title: "See WiFi password from CLI",
+    description: "A command-line utility for reading saved WiFi passwords.",
+    link: "https://github.com/rbalman/wifipass",
+    stats: [
+      ["Stars", "https://img.shields.io/badge/stars-8-blue?style=flat-square&labelColor=343b41"],
+      ["Forks", "https://img.shields.io/badge/forks-2-blue?style=flat-square&labelColor=343b41"],
+      ["Issues", "https://img.shields.io/badge/issues-0%20open-orange?style=flat-square&labelColor=343b41"],
+      ["Pull Requests", "https://img.shields.io/badge/pull%20requests-0%20open-orange?style=flat-square&labelColor=343b41"],
+    ],
+  },
+];
+
+const community = [
+  {
+    title: "Open-Source Captable",
+    description: "Provided DevOps support for developer experience.",
+    link: "https://github.com/captableinc/captable",
+    stats: [
+      ["Stars", "https://img.shields.io/github/stars/captableinc/captable?style=flat-square&labelColor=343b41"],
+      ["Forks", "https://img.shields.io/github/forks/captableinc/captable?style=flat-square&labelColor=343b41"],
+    ],
+  },
+];
+
+const teaching = [
+  "Two-month DevOps training with TechAxis Nepal",
+  "Engineering-wide sessions on DevOps and platform initiatives",
+  "Runbooks, maintenance guides, PR reviews, and release coordination",
+];
+---
+
+<Base
+  title="Community Involvement"
+  meta_title="Community Involvement"
+  description="Talks, projects, teaching, and writing by Balman Rawat."
+>
+  <PageHeader title="Community" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div id="talks" class="mb-16 scroll-mt-24">
+        <div class="mb-8 flex items-end justify-between gap-4">
+          <h2 class="text-h3">Talks</h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          {talks.map((talk) => (
+            <article class="flex h-full flex-col rounded-lg bg-light p-7 dark:bg-darkmode-light">
+              <p class="mb-3 text-sm font-medium uppercase text-primary">
+                {talk.event}
+              </p>
+              <h3 class="mb-4 text-h4">{talk.title}</h3>
+              <p class="mb-4 font-medium">{talk.summary}</p>
+              <p class="mb-6 grow">{talk.description}</p>
+              <div class="flex flex-wrap gap-3">
+                <a
+                  class="btn btn-outline-primary btn-sm"
+                  href={talk.link}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  View slides
+                </a>
+                <a
+                  class="btn btn-primary btn-sm"
+                  href={talk.linkedin}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  LinkedIn post
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div id="projects" class="mb-16 scroll-mt-24">
+        <div class="mb-8 flex items-end justify-between gap-4">
+          <h2 class="text-h3">Projects</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {projects.map((project) => (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener"
+              class="flex h-full flex-col rounded-lg bg-light p-7 transition hover:-translate-y-1 hover:shadow-md dark:bg-darkmode-light"
+            >
+              <h3 class="mb-4 text-h4">{project.title}</h3>
+              <p class="mb-6 grow">{project.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.stats.map(([alt, src]) => (
+                  <img src={src} alt={alt} loading="lazy" class="h-6 rounded-sm" />
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="mb-16">
+        <h2 class="mb-8 text-h3">Community Involvement</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {community.map((item) => (
+            <a
+              class="rounded-lg bg-light p-8 transition hover:-translate-y-1 hover:shadow-md dark:bg-darkmode-light"
+              href={item.link}
+              target="_blank"
+              rel="noopener"
+            >
+              <h3 class="mb-4 text-h4">{item.title}</h3>
+              <p class="mb-6">{item.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {item.stats.map(([alt, src]) => (
+                  <img src={src} alt={alt} loading="lazy" class="h-6 rounded-sm" />
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div id="teaching" class="scroll-mt-24">
+        <div class="rounded-lg bg-light p-8 dark:bg-darkmode-light">
+          <h2 class="mb-6 text-h3">Teaching</h2>
+          <p>
+            Conducted a two-month DevOps training class with TechAxis Nepal for
+            fresh graduates, and regularly supported engineering teams through
+            DevOps sessions, runbooks, PR reviews, release coordination, and
+            platform documentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

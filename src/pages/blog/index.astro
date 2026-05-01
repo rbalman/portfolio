@@ -1,0 +1,79 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const BLOG_FOLDER = "blog";
+
+const latestPosts = [
+  {
+    title: "Setting up elasticsearch with Operator Pattern",
+    description: "ElasticSearch H/A setup using ECK operator in EKS",
+    link: "https://blog.balmanrawat.com.np/setting-up-elasticsearch-with-operator-pattern",
+  },
+  {
+    title: "EC2 Autoscaling with Custom Metrics",
+    description: "Autoscaling EC2 Instances based on message backlog in SQS Queue",
+    link: "https://blog.balmanrawat.com.np/ec2-autoscaling-with-custom-metrics",
+  },
+  {
+    title: "AWS Secrets Manger in Kubernetes",
+    description: "Sync your AWS Secret From Secrets Manger as a Kubernetes Service Account",
+    link: "https://blog.balmanrawat.com.np/aws-secrets-manger-in-kubernetes",
+  },
+  {
+    title: "Helm Cheat Sheets",
+    description: "My collection of basic Helm commands",
+    link: "https://blog.balmanrawat.com.np/helm-cheatsheet",
+  },
+  {
+    title: "Managing CloudFormation at Scale",
+    description: "Compose your CFN stacks using cfn-compose",
+    link: "https://blog.balmanrawat.com.np/managing-cloudformation-stacks-at-scale-with-cfn-compose",
+  },
+  {
+    title: "CloudFormation in a Nutshell",
+    description: "From beginner to advanced CloudFormation",
+    link: "https://blog.balmanrawat.com.np/cloudformation-in-a-nutshell",
+  },
+  {
+    title: "Setup Terraform Backend",
+    description: "Setting up Terraform backend using AWS S3",
+    link: "https://blog.balmanrawat.com.np/terraform-s3-backend",
+  },
+];
+
+const postIndex = await getListPage(BLOG_FOLDER, "-index");
+if (postIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+---
+
+<Base
+  title={postIndex.data.title}
+  meta_title={postIndex.data.meta_title}
+  image={postIndex.data.image}
+  description={postIndex.data.description}
+>
+  <PageHeader title={postIndex?.data.title} />
+  <section class="section">
+    <div class="container">
+      <div>
+        <h2 class="mb-8 text-h3">Latest Posts</h2>
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {latestPosts.map((post) => (
+            <a
+              href={post.link}
+              target="_blank"
+              rel="noopener"
+              class="rounded-lg bg-light p-6 transition hover:-translate-y-1 hover:shadow-md dark:bg-darkmode-light"
+            >
+              <h3 class="mb-3 text-h5">{post.title}</h3>
+              <p>{post.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

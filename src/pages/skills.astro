@@ -1,0 +1,162 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const badges = [
+  ["Amazon AWS", "https://img.shields.io/badge/aws-aws-orange?logo=amazonaws&style=flat-square&logoColor=white"],
+  ["Kubernetes", "https://img.shields.io/badge/k8s-kubernetes-blue?logo=kubernetes&logoColor=white&style=flat-square"],
+  ["Linux", "https://img.shields.io/badge/Linux-Linux-blueviolet?logo=linux&logoColor=white&style=flat-square"],
+  ["ArgoCD", "https://img.shields.io/badge/Argo-Argo-orange?logo=argo&logoColor=white&style=flat-square"],
+  ["Helm", "https://img.shields.io/badge/Helm-Helm-blue?logo=helm&logoColor=white&style=flat-square"],
+  ["Grafana", "https://img.shields.io/badge/Grafana-Grafana-red?logo=grafana&logoColor=white&style=flat-square"],
+  ["Prometheus", "https://img.shields.io/badge/Prometheus-Prometheus-orange?logo=prometheus&logoColor=white&style=flat-square"],
+  ["Terraform", "https://img.shields.io/badge/terraform-terraform-blue?logo=terraform&logoColor=white&style=flat-square"],
+  ["Serverless", "https://img.shields.io/badge/serverless-framework-red?logo=serverless&logoColor=white&style=flat-square"],
+  ["Ansible", "https://img.shields.io/badge/Ansible-Ansible-brightgreen?logo=ansible&logoColor=white&style=flat-square"],
+  ["Amazon EC2", "https://img.shields.io/badge/EC2-EC2-yellow?logo=amazonec2&style=flat-square&logoColor=white"],
+  ["Amazon EKS", "https://img.shields.io/badge/EKS-Amazon%20EKS-orange?logo=amazonec2&style=flat-square&logoColor=white"],
+  ["Amazon ECS", "https://img.shields.io/badge/ECS-ECS-important?logo=amazonecs&style=flat-square&logoColor=white"],
+  ["Amazon API Gateway", "https://img.shields.io/badge/APIGW-API%20Gateway-brightgreen?logo=amazonapigateway&style=flat-square&logoColor=white"],
+  ["AWS Lambda", "https://img.shields.io/badge/aws-aws%20lambda-orange?logo=awslambda&style=flat-square&logoColor=white"],
+  ["Amazon DynamoDB", "https://img.shields.io/badge/DynamoDB-DynamoDB-blue?logo=amazondynamodb&style=flat-square&logoColor=white"],
+  ["Amazon CloudWatch", "https://img.shields.io/badge/CloudWatch-AWS%20CloudWatch-blue?logo=amazoncloudwatch&style=flat-square&logoColor=white"],
+  ["Amazon RDS", "https://img.shields.io/badge/RDS-RDS-lightgrey?logo=amazonrds&style=flat-square&logoColor=white"],
+  ["Nginx", "https://img.shields.io/badge/nginx-nginx-brightgreen?logo=nginx&logoColor=white&style=flat-square"],
+  ["Vagrant", "https://img.shields.io/badge/vagrant-vagrant-blue?logo=vagrant&logoColor=white&style=flat-square"],
+  ["Docker", "https://img.shields.io/badge/-Docker-46a2f1?style=flat-square&logo=docker&logoColor=white"],
+  ["ElasticSearch", "https://img.shields.io/badge/elasticsearch-elasticsearch-brightgreen?logo=elasticsearch&logoColor=white"],
+  ["GitHub Actions", "https://img.shields.io/badge/-Github_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white"],
+  ["Git", "https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white"],
+  ["Prettier", "https://img.shields.io/badge/-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white"],
+  ["MongoDB", "https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white"],
+  ["Postgres", "https://img.shields.io/badge/Postgres-Postgres-pink?logo=postgresql&style=flat-square&logoColor=white"],
+  ["Golang", "https://img.shields.io/badge/Golang-Golang-blue?logo=go&style=flat-square&logoColor=white"],
+  ["Python", "https://img.shields.io/badge/Python-Python-brightgreen?logo=python&style=flat-square&logoColor=white"],
+  ["Node.js", "https://img.shields.io/badge/-Nodejs-43853d?style=flat-square&logo=Node.js&logoColor=white"],
+  ["SonarQube", "https://img.shields.io/badge/SonarQube-SonarQube-brightgreen?logo=sonarqube&style=flat-square&logoColor=white"],
+];
+
+const stats = [
+  ["10+", "years AWS"],
+  ["500+", "EC2 migrations"],
+  ["20+", "database migrations"],
+  ["21", "VPC network design"],
+];
+
+const cards = [
+  {
+    title: "Cloud Platform",
+    signal: "AWS at production scale",
+    items: ["EC2", "VPC", "Route53", "S3", "Lambda", "ECS", "EKS", "RDS", "CloudFront", "SQS", "SNS", "DynamoDB", "API Gateway"],
+  },
+  {
+    title: "Kubernetes",
+    signal: "clusters, workloads, upgrades",
+    items: ["EKS", "Helm", "Argo CD", "Karpenter", "Prometheus", "Grafana", "Docker", "ECR", "network policies"],
+  },
+  {
+    title: "Infrastructure as Code",
+    signal: "repeatable, reviewed, automated",
+    items: ["Terraform", "AWS CDK", "CloudFormation", "Serverless Framework", "Ansible", "custom AWS SDK tooling"],
+  },
+  {
+    title: "Delivery Systems",
+    signal: "CI/CD and GitOps",
+    items: ["GitHub Actions", "GitLab Pipelines", "CodePipeline", "CodeBuild", "CodeDeploy", "Jenkins", "CircleCI", "canary", "blue-green"],
+  },
+  {
+    title: "Observability",
+    signal: "logs, metrics, traces, incidents",
+    items: ["OpenTelemetry", "Prometheus", "Grafana", "Datadog", "CloudWatch", "New Relic", "ELK", "PagerDuty", "Opsgenie"],
+  },
+  {
+    title: "Security",
+    signal: "shift-left and cloud controls",
+    items: ["IAM", "SSO", "Secrets Manager", "1Password", "WAF", "Shield", "TLS", "image scanning", "SonarCloud", "IaC policy checks"],
+  },
+  {
+    title: "Data Stores",
+    signal: "operate, scale, maintain",
+    items: ["PostgreSQL", "MySQL", "DynamoDB", "DocumentDB", "MongoDB", "OpenSearch", "Redis", "Memcached", "RDS"],
+  },
+  {
+    title: "Automation",
+    signal: "scripts to platform tools",
+    items: ["Golang", "Bash", "Node.js", "TypeScript", "Python", "AWS SDK", "Lambda automation", "Slack apps"],
+  },
+  {
+    title: "Linux and Networking",
+    signal: "debugging, hardening, internals",
+    items: ["Ubuntu", "Amazon Linux", "CentOS", "Nginx", "VPC", "subnets", "load balancers", "container internals", "AMIs"],
+  },
+  {
+    title: "Blockchain Infrastructure",
+    signal: "EVM compatible rollup operations",
+    items: ["sequencers", "replicas", "Sepolia nodes", "Ethereum nodes", "RPC load balancers", "block explorers"],
+  },
+  {
+    title: "Data Pipelines",
+    signal: "analytics and movement",
+    items: ["Prefect", "dbt", "AWS Glue", "Kinesis", "Athena", "Firehose"],
+  },
+  {
+    title: "Team Enablement",
+    signal: "platform work that helps people ship",
+    items: ["runbooks", "documentation", "PR reviews", "release coordination", "SOC2 support", "developer tooling"],
+  },
+];
+---
+
+<Base
+  title="Skills"
+  meta_title="Skills"
+  description="A visual map of Balman Rawat's cloud, DevOps, Kubernetes, automation, observability, and platform engineering capabilities."
+>
+  <PageHeader title="Skills" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="mx-auto mb-12 max-w-5xl text-center">
+        <p class="text-lg">
+          A capability map for the systems I build, operate, debug, automate, secure,
+          and teach.
+        </p>
+      </div>
+
+      <div class="mb-12 flex flex-wrap justify-center gap-2">
+        {badges.map(([alt, src]) => (
+          <img src={src} alt={alt} loading="lazy" class="h-7 rounded-sm" />
+        ))}
+      </div>
+
+      <div class="mb-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {stats.map(([value, label]) => (
+          <div class="rounded-lg bg-light px-6 py-6 text-center dark:bg-darkmode-light">
+            <p class="text-h3 font-bold text-primary">{value}</p>
+            <p class="font-medium">{label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {cards.map((card) => (
+          <article class="rounded-lg bg-light p-6 dark:bg-darkmode-light">
+            <div class="mb-5">
+              <h2 class="mb-1 text-h5">{card.title}</h2>
+              <p class="text-sm font-medium uppercase text-primary">
+                {card.signal}
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              {card.items.map((item) => (
+                <span class="rounded bg-body px-3 py-1 text-sm dark:bg-darkmode-body">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

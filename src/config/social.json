@@ -1,0 +1,24 @@
+{
+  "main": [
+    {
+      "name": "github",
+      "icon": "FaGithub",
+      "link": "https://github.com/rbalman"
+    },
+    {
+      "name": "x",
+      "icon": "FaXTwitter",
+      "link": "https://x.com/balmanrawat"
+    },
+    {
+      "name": "blog",
+      "icon": "FaBlogger",
+      "link": "https://blog.balmanrawat.com.np/"
+    },
+    {
+      "name": "linkedin",
+      "icon": "FaLinkedin",
+      "link": "https://www.linkedin.com/in/rbalman"
+    }
+  ]
+}

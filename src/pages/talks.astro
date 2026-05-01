@@ -1,0 +1,89 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const talks = [
+  {
+    title: "Managing CloudFormation Stacks at Scale",
+    event: "2nd AWS User Group Nepal Meetup",
+    type: "Infrastructure as Code",
+    summary:
+      "A practical session on treating CloudFormation stacks as coordinated systems instead of isolated templates.",
+    description:
+      "Designing CloudFormation for microservices, understanding its limits, and creating immutable infrastructure in parallel.",
+    link: "https://slides.com/rbalman/managing-cloudformation-at-scale",
+    linkedin:
+      "https://www.linkedin.com/posts/rbalman_thank-you-aws-user-group-nepal-looking-forward-share-7056085390943748096-RORL?utm_source=share&utm_medium=member_desktop&rcm=ACoAABk8CpsBfb3FfDjqQX3Dw1tVK85v4vi8SZU",
+  },
+  {
+    title: "Container Internals",
+    event: "34th DevOps Kathmandu Meetup",
+    type: "Linux and containers",
+    summary:
+      "A live, low-level walkthrough of what actually makes a container feel isolated on Linux.",
+    description:
+      "A live demo of container building blocks: chroot, namespaces, cgroups, and Linux security modules.",
+    link: "https://slides.com/rbalman/container-internals",
+    linkedin:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7188741371644567552/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABk8CpsBfb3FfDjqQX3Dw1tVK85v4vi8SZU",
+  },
+  {
+    title: "Deploying the career in a cloud native way",
+    event: "CNCF Kathmandu",
+    type: "Remote work and career",
+    summary:
+      "A career talk about taking DevOps work global while staying practical, employable, and grounded.",
+    description:
+      "Experience sharing on global remote roles, career lessons, and practical strategies for growing a DevOps career internationally.",
+    link: "https://slides.com/rbalman/remote-work",
+    linkedin:
+      "https://www.linkedin.com/posts/cncf-kathmandu_speaker-announcement-were-excited-to-activity-7340981385496530944-cGG4?utm_source=share&utm_medium=member_desktop&rcm=ACoAABk8CpsBfb3FfDjqQX3Dw1tVK85v4vi8SZU",
+  },
+];
+---
+
+<Base
+  title="Talks"
+  meta_title="Talks"
+  description="Meetup talks, slides, and community sessions by Balman Rawat."
+>
+  <PageHeader title="Talks" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="grid gap-6 lg:grid-cols-3">
+        {talks.map((talk) => (
+          <article class="flex h-full flex-col rounded-lg bg-light p-7 dark:bg-darkmode-light">
+            <p class="mb-3 text-sm font-medium uppercase text-primary">
+              {talk.type}
+            </p>
+            <h2 class="mb-3 text-h4">{talk.title}</h2>
+            <p class="mb-4 font-medium text-text-dark dark:text-white">
+              {talk.event}
+            </p>
+            <p class="mb-4 font-medium">{talk.summary}</p>
+            <p class="mb-6 grow">{talk.description}</p>
+            <div class="flex flex-wrap gap-3">
+              <a
+                class="btn btn-outline-primary btn-sm"
+                href={talk.link}
+                target="_blank"
+                rel="noopener"
+              >
+                View slides
+              </a>
+              <a
+                class="btn btn-primary btn-sm"
+                href={talk.linkedin}
+                target="_blank"
+                rel="noopener"
+              >
+                LinkedIn post
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

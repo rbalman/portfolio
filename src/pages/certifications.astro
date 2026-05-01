@@ -1,0 +1,73 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const certifications = [
+  {
+    title: "AWS Certified DevOps Engineer - Professional",
+    issuer: "Amazon Web Services",
+    badge: "AWS",
+    image:
+      "https://github.com/rbalman/cfn-compose/assets/8892649/7d070fde-8137-4516-9308-25e05ae3744e",
+    credential:
+      "https://www.credly.com/badges/ded0b0c1-69a9-4509-8b86-5d7265187543/public_url",
+    focus: ["automation", "CI/CD", "monitoring", "security", "resilience"],
+  },
+  {
+    title: "Certified Kubernetes Application Developer",
+    issuer: "Cloud Native Computing Foundation",
+    badge: "CKAD",
+    image:
+      "https://github.com/rbalman/cfn-compose/assets/8892649/ab8f1e38-997e-47a3-863e-52bf6f625e22",
+    credential:
+      "https://www.credly.com/badges/28e75fd3-0b6c-43ac-a555-d690c73226bd/public_url",
+    focus: ["workloads", "configuration", "services", "storage", "troubleshooting"],
+  },
+];
+---
+
+<Base
+  title="Certifications"
+  meta_title="Certifications"
+  description="Professional certifications held by Balman Rawat."
+>
+  <PageHeader title="Certifications" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="grid gap-6 lg:grid-cols-2">
+        {certifications.map((cert) => (
+          <a
+            href={cert.credential}
+            target="_blank"
+            rel="noopener"
+            class="group block rounded-lg bg-light p-8 transition hover:-translate-y-1 hover:shadow-md dark:bg-darkmode-light"
+          >
+            <div class="mb-6 flex justify-center">
+              <img
+                src={cert.image}
+                alt={cert.title}
+                loading="lazy"
+                class="h-36 w-36 object-contain"
+              />
+            </div>
+            <p class="mb-3 text-center text-sm font-medium uppercase text-primary">
+              {cert.issuer}
+            </p>
+            <h2 class="mb-6 text-center text-h4">{cert.title}</h2>
+            <div class="flex flex-wrap gap-2">
+              {cert.focus.map((item) => (
+                <span class="rounded bg-body px-3 py-1 text-sm dark:bg-darkmode-body">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <p class="mt-8 text-center font-medium text-primary">
+              View credential
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,149 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const experiences = [
+  {
+    company: "Quantstamp",
+    role: "Senior DevOps Engineer",
+    period: "2024 - Present",
+    link: "https://quantstamp.com/",
+    logo: "https://dubiw3zgo51jg.cloudfront.net/Quantstamp-Favicon.png",
+    highlights: [
+      "Owned end-to-end observability across logs, metrics, traces, alerts, incidents, and on-call workflows using Prometheus, Grafana, OTEL, Datadog, CloudWatch, Opsgenie, and Slack.",
+      "Maintained multi-region AWS infrastructure with Terraform, EKS, RDS, Route53, load balancers, Kubernetes controllers, and production cluster upgrades.",
+      "Improved delivery and developer operations through GitHub Actions, Argo CD, Helm, Terraform workflows, release coordination, access setup, PR reviews, and CI/CD troubleshooting.",
+      "Reduced infrastructure cost with budget reviews, savings plans, spot instances, Karpenter scaling, tagging, billing alerts, retention policies, and backup hygiene.",
+      "Supported zero-knowledge rollup infrastructure including sequencers, replicas, Ethereum/Sepolia nodes, RPC load balancers, block explorers, WAF, Shield, SSO, IAM, and secrets management.",
+    ],
+  },
+  {
+    company: "Proxify",
+    role: "Senior DevOps Engineer Contractor",
+    period: "2023 - 2024",
+    link: "https://proxify.io/",
+    logo: "https://proxify.io/images/logo.svg",
+    highlights: [
+      "Managed production AWS services across Lambda, ECS, Fargate, EKS, CodePipeline, CodeBuild, CloudFront, S3, Cognito, ALB, VPC, RDS, ECR, Route53, CloudWatch, EC2, DynamoDB, and Step Functions.",
+      "Built reproducible infrastructure with AWS CDK in TypeScript, keeping cost, security, scalability, and repeatable delivery in view.",
+      "Ran Kubernetes workloads on EKS, CI/CD pipelines across GitHub Actions, GitLab Pipelines, and AWS developer tools.",
+      "Improved operations with observability patterns, better logging standards, application metrics, traces, Lambda automation, and internal Slack chatbot tools.",
+      "Reviewed architecture and security needs with engineering teams, then turned retrospectives into practical platform improvements.",
+    ],
+  },
+  {
+    company: "CloudFactory",
+    role: "Senior DevOps Engineer / Tech Lead",
+    period: "2016 - 2023",
+    link: "https://www.cloudfactory.com/",
+    logo: "https://www.cloudfactory.com/hs-fs/hubfs/cf-logo-blue-transparent%20(1).png?width=485&height=87&name=cf-logo-blue-transparent%20(1).png",
+    highlights: [
+      "Grew from junior DevOps work into senior and tech lead ownership across AWS infrastructure, Linux operations, CI/CD, platform maintenance, and developer experience.",
+      "Led platform practices around technical documentation, SOC2 audit support, runbooks, engineering code standards, OKRs, team sessions, and release hygiene.",
+      "Designed multi-stage CI/CD systems with canary, rolling, and blue-green deployment strategies using Jenkins, GitHub, CodePipeline, Helm, and related tooling.",
+      "Managed observability and incident workflows with New Relic, Prometheus, Grafana, ELK Stack, PagerDuty, Honeybadger, logs, traces, and infrastructure metrics.",
+      "Helped migrate 500+ EC2 application servers and 20+ databases into private AWS VPC environments while building automation for CloudFormation, AMIs, data pipelines, ECS, and developer tooling.",
+    ],
+  },
+  {
+    company: "Upwork",
+    role: "Freelancer",
+    period: "2022 - Present",
+    link: "https://www.upwork.com/freelancers/~019fda20c3945e2e31",
+    logo: "https://cdn.simpleicons.org/upwork/6FDA44",
+    highlights: [
+      "Delivered DevOps technical support for multiple clients, moving quickly across different cloud environments, codebases, and operational expectations.",
+      "Designed a complex AWS network with 21 VPCs across three accounts, multiple regions, and separate environments.",
+      "Streamlined infrastructure written in CloudFormation and helped teams make deployment workflows easier to operate.",
+      "Wrote technical content for Logz.io, translating observability and infrastructure work into practical developer-facing material.",
+    ],
+  },
+  {
+    company: "Thorangs Pvt. Ltd.",
+    role: "Co-founder and Project Manager",
+    period: "2017 - 2018",
+    link: "",
+    logo: "",
+    highlights: [
+      "Co-founded a software company with friends and learned the real-world shape of building a team, a pipeline, and a delivery rhythm from scratch.",
+      "Gathered and validated requirements with clients, prepared sales pitches, slides, and documentation for potential customers.",
+      "Kept stakeholders informed throughout the project lifecycle while planning, prioritizing, and delegating work inside the team.",
+      "Protected team spirit and delivery focus, turning an early-stage company into a deep learning experience in ownership and collaboration.",
+    ],
+  },
+  {
+    company: "Biddhe Pvt. Ltd.",
+    role: "Android Developer",
+    period: "2015 - 2016",
+    link: "https://bidhee.com/",
+    logo: "https://bidhee.com/uploads/2026-04-10-08-10-35-bidhee-logo.png",
+    highlights: [
+      "Started professional work as an Android Developer and contributed to more than six Android applications in a short period.",
+      "Refactored, optimized, secured, and maintained existing applications while adding new features.",
+      "Integrated API backends with authentication and authorization flows for mobile applications.",
+      "Built prototypes for feasibility and user acceptance testing, then reported progress and feedback to stakeholders.",
+    ],
+  },
+];
+---
+
+<Base
+  title="Experience"
+  meta_title="Experience"
+  description="Professional experience across DevOps, platform engineering, cloud infrastructure, and software delivery."
+>
+  <PageHeader title="Experience" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="grid gap-6">
+        {experiences.map((item) => (
+          <article class="rounded-lg bg-light p-7 dark:bg-darkmode-light">
+            <div class="mb-6 flex items-start gap-5">
+              <div class="flex h-14 w-28 shrink-0 items-center justify-center pr-3">
+                {item.logo ? (
+                  <img
+                    src={item.logo}
+                    alt={`${item.company} logo`}
+                    loading="lazy"
+                    class="max-h-11 max-w-full object-contain"
+                  />
+                ) : (
+                  <span class="text-sm font-semibold leading-tight text-text-dark dark:text-white">
+                    {item.company}
+                  </span>
+                )}
+              </div>
+              <div>
+                {
+                  item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener"
+                      class="mb-2 inline-block text-h4 font-bold text-text-dark underline decoration-primary/40 decoration-2 underline-offset-4 transition hover:text-primary hover:decoration-primary dark:text-white"
+                    >
+                      {item.company}
+                    </a>
+                  ) : (
+                    <h2 class="mb-2 text-h4 font-bold">{item.company}</h2>
+                  )
+                }
+                <p class="font-medium text-primary">{item.role}</p>
+                <p class="text-sm">{item.period}</p>
+              </div>
+            </div>
+            <ul class="space-y-3">
+              {item.highlights.map((highlight) => (
+                <li class="flex gap-3 text-sm leading-relaxed">
+                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,57 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Skills",
+      "url": "/skills"
+    },
+    {
+      "name": "Community",
+      "url": "/community-involvement"
+    },
+    {
+      "name": "More",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Experience",
+          "url": "/experience"
+        },
+        {
+          "name": "Certifications",
+          "url": "/certifications"
+        },
+        {
+          "name": "Blogs",
+          "url": "/blog"
+        },
+        {
+          "name": "CV",
+          "url": "/cv"
+        }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "name": "Skills",
+      "url": "/skills"
+    },
+    {
+      "name": "Community",
+      "url": "/community-involvement"
+    },
+    {
+      "name": "Experience",
+      "url": "/experience"
+    },
+    {
+      "name": "CV",
+      "url": "/cv"
+    }
+  ]
+}
