@@ -1,10 +1,10 @@
 {
-  "name": "astroplate",
-  "version": "6.1.0",
-  "description": "Astro and Tailwindcss boilerplate",
-  "author": "zeon.studio",
-  "license": "MIT",
-  "packageManager": "yarn@1.22.22",
+  "name": "balman-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Balman Rawat.",
+  "author": "Balman Rawat",
+  "license": "SEE LICENSE IN LICENSE",
+  "packageManager": "npm@11.12.1",
   "type": "module",
   "scripts": {
     "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"node scripts/jsonGenerator.js && astro dev\"",
@@ -13,10 +13,7 @@
     "check": "astro check",
     "format": "prettier -w ./src",
     "generate-json": "node scripts/jsonGenerator.js",
-    "generate-llms": "node scripts/llmsGenerator.js",
-    "remove-darkmode": "node scripts/removeDarkmode.js && yarn format",
-    "deploy:cf-workers": "npm run build && wrangler deploy",
-    "preview:cf-workers": "npm run build && wrangler dev"
+    "generate-llms": "node scripts/llmsGenerator.js"
   },
   "dependencies": {
     "@astrojs/check": "0.9.8",
@@ -59,8 +56,7 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwind-bootstrap-grid": "^7.0.0",
     "tailwindcss": "^4.2.2",
-    "typescript": "^6.0.2",
-    "wrangler": "^4.80.0"
+    "typescript": "^6.0.2"
   },
   "overrides": {
     "typescript": "$typescript",
