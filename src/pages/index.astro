@@ -11,13 +11,12 @@ const { banner, features } = homepage.data;
 
 const certifications = [
   {
-    title: "AWS Certified DevOps Engineer - Professional",
-    issuer: "Amazon Web Services",
-    focus: "automation, delivery, monitoring, reliability",
-    link: "https://www.credly.com/badges/ded0b0c1-69a9-4509-8b86-5d7265187543/public_url",
-    tone: "AWS",
-    image:
-      "https://github.com/rbalman/cfn-compose/assets/8892649/7d070fde-8137-4516-9308-25e05ae3744e",
+    title: "Certified Kubernetes Administrator",
+    issuer: "Cloud Native Computing Foundation",
+    focus: "Kubernetes cluster operations, security, troubleshooting",
+    link: "https://www.credly.com/badges/9780a1f4-f0a8-4c4c-a7ce-982c9f6e05b1/public_url",
+    tone: "CKA",
+    image: "/images/certifications/cka.png",
   },
   {
     title: "Certified Kubernetes Application Developer",
@@ -25,8 +24,17 @@ const certifications = [
     focus: "Kubernetes workloads, configuration, delivery",
     link: "https://www.credly.com/badges/28e75fd3-0b6c-43ac-a555-d690c73226bd/public_url",
     tone: "CKAD",
-    image:
-      "https://github.com/rbalman/cfn-compose/assets/8892649/ab8f1e38-997e-47a3-863e-52bf6f625e22",
+    image: "/images/certifications/ckad.png",
+    expired: true,
+  },
+  {
+    title: "AWS Certified DevOps Engineer - Professional",
+    issuer: "Amazon Web Services",
+    focus: "automation, delivery, monitoring, reliability",
+    link: "https://www.credly.com/badges/ded0b0c1-69a9-4509-8b86-5d7265187543/public_url",
+    tone: "AWS",
+    image: "/images/certifications/aws-devops-engineer-professional.png",
+    expired: true,
   },
 ];
 
@@ -138,14 +146,20 @@ const communityCards = [
                     <p set:html={markdownify(feature.content)} class="text-lg" />
                   )}
                 </div>
-                <div class="grid gap-6 md:grid-cols-2">
+                <div class="grid gap-6 md:grid-cols-3">
                   {certifications.map((cert) => (
                     <a
                       href={cert.link}
                       target="_blank"
                       rel="noopener"
-                      class="block rounded-lg bg-body p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:bg-darkmode-body"
+                      aria-label={`${cert.title}${cert.expired ? " (expired)" : ""}`}
+                      class="relative block rounded-lg bg-body p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:bg-darkmode-body"
                     >
+                      {cert.expired && (
+                        <span class="absolute right-4 top-4 rounded border border-border px-2 py-0.5 text-xs font-medium text-text-light dark:border-darkmode-border dark:text-darkmode-text-light">
+                          Expired
+                        </span>
+                      )}
                       <div class="mb-5 flex justify-center">
                         <img
                           src={cert.image}

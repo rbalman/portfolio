@@ -90,8 +90,10 @@ features:
     image: "/images/service-2.png"
     content: ""
     bulletpoints:
+      - "Certified Kubernetes Administrator"
       - "AWS Certified DevOps Engineer - Professional"
       - "Certified Kubernetes Application Developer"
+      
     button:
       enable: true
       label: "View Certifications"
