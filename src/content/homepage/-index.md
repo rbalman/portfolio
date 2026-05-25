@@ -2,7 +2,7 @@
 # Banner
 banner:
   title: "Balman"
-  content: "Senior DevOps Engineer focused on cloud infrastructure, platform automation, Kubernetes, observability, and helping teams ship reliable systems."
+  content: "code is the mind, infrastructure is the body. The mind is only as powerful as the body beneath it. I keep the body resilient."
   image: "/images/banner.png"
   button:
     enable: true
