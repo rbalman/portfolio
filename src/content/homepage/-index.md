@@ -2,7 +2,7 @@
 # Banner
 banner:
   title: "Human"
-  content: "code is the mind, infrastructure is the body. The mind is only as powerful as the body beneath it."
+  content: "code is the mind, infrastructure is the body and the mind is only as powerful as the body."
   image: "/images/banner.png"
   button:
     enable: true
