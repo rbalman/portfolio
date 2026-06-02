@@ -1,8 +1,8 @@
 ---
 # Banner
 banner:
-  title: "Balman"
-  content: "code is the mind, infrastructure is the body. The mind is only as powerful as the body beneath it. I keep the body resilient."
+  title: "Human"
+  content: "code is the mind, infrastructure is the body. The mind is only as powerful as the body beneath it."
   image: "/images/banner.png"
   button:
     enable: true
